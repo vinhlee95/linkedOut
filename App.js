@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -28,21 +30,17 @@ export default class App extends React.Component {
         })
       },
       {
-        tabBarOptions: {
-          activeTintColor: 'white',
-          labelStyle: {
-            fontSize: 14,
-          },
-          style: {
-            backgroundColor: '#74a0e8',
-          },
+        navigationOptions: {
+          tabBarVisible: false
         }
-      }
+      },
     );
     return (
-      <View style={styles.container}>
-        <MainNavigator  />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <MainNavigator  />
+        </View>
+      </Provider>
     );
   }
 }

@@ -18,7 +18,6 @@ class ReviewScreen extends Component {
       return(
          <View>
             <Text>ReviewScreen</Text>
-            <Button title="To Settings" onPress={() => this.props.navigation.navigate('settings')} />
          </View>
       )
    }
